@@ -1,0 +1,39 @@
+<h3>Book List</h3>
+<div class="dashboard">
+  <div>CSE:
+    <span>{{books|deptcount:'CSE'}}/{{books.length}}</span>
+  </div>
+  <div>ECE:
+      <span>{{books|deptcount:'ECE'}}/{{books.length}}</span>
+    </div>
+    <div>IT:
+        <span>{{books|deptcount:'IT'}}/{{books.length}}</span>
+      </div>
+      <div>Mechanical:
+          <span>{{books|deptcount:'Mechanical'}}/{{books.length}}</span>
+        </div>
+    <div>Total
+        <span>{{books.length}}</span>
+      </div>
+  </div>
+
+<div class="bookList">
+  <div class="bookCard" 
+  *ngFor="let x of books" 
+  (click)="showBook(x.eid)">
+    <div class="typeIcon">
+      <!-- here the img src is bound and conditionally given -->
+      <img [src]="x.dept=='ECE'?eceIcon:cseIcon" />   
+    </div>
+    <div class="bookdetails">
+
+      <span>{{x.eid}}</span>
+      <span>{{x.name}}</span>
+      <span>{{x.basic}}</span>
+      <span>{{x.hra}}</span>
+      <span>{{x.dept}}</span>
+    </div>
+
+  </div>
+  <div class="clear"></div>
+</div>
